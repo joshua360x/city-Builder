@@ -1,4 +1,5 @@
 
+
 body {
     /* feel free to update these css variables for a quick theme */
     
@@ -89,3 +90,28 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+
+
+
+.img-city {
+    width: 400px;
+    height: 400px;
+    background-image: url("../assets/nyc.jpg");
+    background-size: 400px 400px ;
+}
+.img-sky {
+width: 400px;
+    height: 400px;
+    background-image: url("../assets/blue-skyline.jpg");
+    background-size: 400px 400px ;
+}
+.img-castle {
+    width: 400px;
+    height: 400px;
+    background-image: url("../assets/small-castle.jpg");
+    background-size: 400px 400px ;
+}
+
+
+
