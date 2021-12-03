@@ -9,12 +9,16 @@ const cityDropDown = document.querySelector('#city-dropdown');
 const skyDropDown = document.querySelector('#sky-dropdown');
 const castleDropDown = document.querySelector('#castle-dropdown');
 const sloganButtonEL = document.querySelector('.sloganBtn');
+const nameButtonEL = document.querySelector('#nameBtn');
 const sloganInputEL = document.querySelector('.sloganInput');
+const nameInputEL = document.querySelector('#nameInput');
 const sloganEL = document.querySelector('.slogan');
+const cityNameEL = document.querySelector('.cityName');
 const statReportingEL = document.querySelector('.stat-Reporting');
 
 // let state
 let sloganArr = [];
+let nameArr = [];
 let cityStatechange = 0;
 let skyStatechange = 0;
 let castleStatechange = 0;
@@ -74,24 +78,34 @@ sloganButtonEL.addEventListener('click', () => {
     displaySlogan();
 });
 
-
-
-
+nameButtonEL.addEventListener('click', () => {
+    // clearingCatchPhrase();
+    // displaySlogan();
+    let nameValue = nameInputEL.value;
+    nameArr.push(nameValue);
+    cityNameEL.textContent = `The name of your city is ${nameValue}`;
+    nameInputEL.value = '';
+    // console.log(nameValue);
+  });
 
 
 function displaySlogan() {
+    let itemofArr = nameArr.slice(-1)[0]
+    console.log(itemofArr);
     let sloagnPhrase = sloganInputEL.value;
     sloganArr.push(sloagnPhrase);
-    // console.log(sloganArr);
+    console.log(sloganArr);
     sloganInputEL.value = '';
-    for (const slogan of sloganArr) {
+
+
+
+      for (const slogan of sloganArr) {
         const p = document.createElement('p');
         p.textContent = '';
-        p.textContent = slogan;
+        p.textContent = `${itemofArr ? `${itemofArr} :` : '' }  ${slogan}`;
 
         sloganEL.append(p);
-
-    }
+      }
 }
 
 function clearingCatchPhrase(){ 
@@ -103,6 +117,5 @@ function clearingCatchPhrase(){
 function displayStats() {
     const currentState = createCountString(cityStatechange, skyStatechange, castleStatechange);
     statReportingEL.textContent = currentState;
-
 }
 
