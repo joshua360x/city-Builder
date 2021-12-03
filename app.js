@@ -15,6 +15,7 @@ const nameInputEL = document.querySelector('#nameInput');
 const sloganEL = document.querySelector('.slogan');
 const cityNameEL = document.querySelector('.cityName');
 const statReportingEL = document.querySelector('.stat-Reporting');
+const formEL = document.querySelector('#form');
 
 // let state
 let sloganArr = [];
@@ -73,11 +74,30 @@ castleDropDown.addEventListener('change', () => {
 //  - loop through array and clear out any slogans
 //  - append any new slogans (avoid double appending)
 
-sloganButtonEL.addEventListener('click', () => {
+// sloganButtonEL.addEventListener('click', () => {
+//     clearingCatchPhrase();
+//     displaySlogan();
+// });
+
+
+
+formEL.addEventListener('submit', (event) => {
+      // function FormData(name, slogan) {
+  //   this.nameArr = name;
+  //   this.sloganArr = slogan;
+    event.preventDefault();
+
+    const formNew = new FormData(formEL);
+  // console.log(formNew);
+    console.log(formNew.get('sloganNameValue'));
     clearingCatchPhrase();
     displaySlogan();
-});
+    sloganInputEL.value = ''
 
+});
+  // let coolNew = new FormData(['Pizza'], ['red', 'blue'])
+  // console.log(coolNew);
+  
 nameButtonEL.addEventListener('click', () => {
     // clearingCatchPhrase();
     // displaySlogan();
@@ -86,26 +106,29 @@ nameButtonEL.addEventListener('click', () => {
     cityNameEL.textContent = `The name of your city is ${nameValue}`;
     nameInputEL.value = '';
     // console.log(nameValue);
-  });
+
+});
 
 
 function displaySlogan() {
-    let itemofArr = nameArr.slice(-1)[0]
-    console.log(itemofArr);
+    let itemofArr = nameArr.slice(-1)[0];
+    // console.log(itemofArr);
     let sloagnPhrase = sloganInputEL.value;
     sloganArr.push(sloagnPhrase);
-    console.log(sloganArr);
+    // console.log(sloganArr);
     sloganInputEL.value = '';
-
-
-
-      for (const slogan of sloganArr) {
+  
+  
+  
+    for (const slogan of sloganArr) {
         const p = document.createElement('p');
         p.textContent = '';
         p.textContent = `${itemofArr ? `${itemofArr} :` : '' }  ${slogan}`;
-
+    
         sloganEL.append(p);
-      }
+    }
+
+  
 }
 
 function clearingCatchPhrase(){ 
