@@ -25,6 +25,7 @@ let skyStatechange = 0;
 let castleStatechange = 0;
 
 
+
 // set event listeners 
   // get user input
   // use user input to update state 
@@ -36,6 +37,8 @@ cityDropDown.addEventListener('change', () => {
     let cityChoosen = cityDropDown.value;
     // console.log(cityChoosen);
     cityEL.style.backgroundImage = `url("./assets/${cityChoosen}.jpg")`;
+    let audiofile = new Audio(`./assets/${cityChoosen}.wav`);
+    audiofile.play();
     displayStats();
 });
 
@@ -45,6 +48,8 @@ skyDropDown.addEventListener('change', () => {
     // console.log(skyChoosen);
     skyEL.style.backgroundImage = `url("./assets/${skyChoosen}-skyline.jpg")`;
     displayStats();
+    let audiofile = new Audio(`./assets/${skyChoosen}.wav`);
+    audiofile.play();
 
 });
 
@@ -53,6 +58,8 @@ castleDropDown.addEventListener('change', () => {
     let castleChoosen = castleDropDown.value;
     // console.log(castleChoosen);
     castleEL.style.backgroundImage = `url("./assets/${castleChoosen}-castle.jpg")`;
+    let audiofile = new Audio(`./assets/${castleChoosen}.wav`);
+    audiofile.play();
     displayStats();
 
 });
