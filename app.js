@@ -2,16 +2,16 @@
 import { createCountString } from '../utils.js';
 
 
-const cityEL = document.querySelector('.img-city')
-const skyEL = document.querySelector('.img-sky')
-const castleEL = document.querySelector('.img-castle')
-const cityDropDown = document.querySelector('#city-dropdown')
-const skyDropDown = document.querySelector('#sky-dropdown')
-const castleDropDown = document.querySelector('#castle-dropdown')
-const sloganButtonEL = document.querySelector('.sloganBtn')
-const sloganInputEL = document.querySelector('.sloganInput')
-const sloganEL = document.querySelector('.slogan')
-const statReportingEL = document.querySelector('.stat-Reporting')
+const cityEL = document.querySelector('.img-city');
+const skyEL = document.querySelector('.img-sky');
+const castleEL = document.querySelector('.img-castle');
+const cityDropDown = document.querySelector('#city-dropdown');
+const skyDropDown = document.querySelector('#sky-dropdown');
+const castleDropDown = document.querySelector('#castle-dropdown');
+const sloganButtonEL = document.querySelector('.sloganBtn');
+const sloganInputEL = document.querySelector('.sloganInput');
+const sloganEL = document.querySelector('.slogan');
+const statReportingEL = document.querySelector('.stat-Reporting');
 
 // let state
 let sloganArr = [];
@@ -26,31 +26,31 @@ let castleStatechange = 0;
   // update DOM to reflect the new state
 
 
-  cityDropDown.addEventListener('change', () => {
-    cityStatechange++
-    let cityChoosen = cityDropDown.value
-    console.log(cityChoosen);
-    cityEL.style.backgroundImage = `url("./assets/${cityChoosen}.jpg")`
-    displayStats()
-  })
+cityDropDown.addEventListener('change', () => {
+    cityStatechange++;
+    let cityChoosen = cityDropDown.value;
+    // console.log(cityChoosen);
+    cityEL.style.backgroundImage = `url("./assets/${cityChoosen}.jpg")`;
+    displayStats();
+});
 
-  skyDropDown.addEventListener('change', () => {
-    skyStatechange++
-    let skyChoosen = skyDropDown.value
-    console.log(skyChoosen);
-    skyEL.style.backgroundImage = `url("./assets/${skyChoosen}-skyline.jpg")`
-    displayStats()
+skyDropDown.addEventListener('change', () => {
+    skyStatechange++;
+    let skyChoosen = skyDropDown.value;
+    // console.log(skyChoosen);
+    skyEL.style.backgroundImage = `url("./assets/${skyChoosen}-skyline.jpg")`;
+    displayStats();
 
-  })
+});
 
-  castleDropDown.addEventListener('change', () => {
-    castleStatechange++
-    let castleChoosen = castleDropDown.value
-    console.log(castleChoosen);
-    castleEL.style.backgroundImage = `url("./assets/${castleChoosen}-castle.jpg")`
-    displayStats()
+castleDropDown.addEventListener('change', () => {
+    castleStatechange++;
+    let castleChoosen = castleDropDown.value;
+    // console.log(castleChoosen);
+    castleEL.style.backgroundImage = `url("./assets/${castleChoosen}-castle.jpg")`;
+    displayStats();
 
-  })
+});
 
 //   change for the dropdown menu
 //   - Why? The image will change according to the value of the dropdown menu
@@ -70,9 +70,9 @@ let castleStatechange = 0;
 //  - append any new slogans (avoid double appending)
 
 sloganButtonEL.addEventListener('click', () => {
-  clearingCatchPhrase()
-  displaySlogan()
-})
+    clearingCatchPhrase();
+    displaySlogan();
+});
 
 
 
@@ -80,29 +80,29 @@ sloganButtonEL.addEventListener('click', () => {
 
 
 function displaySlogan() {
-  let sloagnPhrase = sloganInputEL.value
-  sloganArr.push(sloagnPhrase)
-console.log(sloganArr);
-  sloganInputEL.value = ''
-  for (const slogan of sloganArr) {
-    const p = document.createElement('p');
-    p.textContent = '';
-    p.textContent = slogan;
+    let sloagnPhrase = sloganInputEL.value;
+    sloganArr.push(sloagnPhrase);
+    // console.log(sloganArr);
+    sloganInputEL.value = '';
+    for (const slogan of sloganArr) {
+        const p = document.createElement('p');
+        p.textContent = '';
+        p.textContent = slogan;
 
-    sloganEL.append(p)
+        sloganEL.append(p);
 
-  }
+    }
 }
 
 function clearingCatchPhrase(){ 
-  while (sloganEL.firstChild) {
-      sloganEL.removeChild(sloganEL.firstChild);
-  }
+    while (sloganEL.firstChild) {
+        sloganEL.removeChild(sloganEL.firstChild);
+    }
 }
 
 function displayStats() {
-  const currentState = createCountString(cityStatechange, skyStatechange, castleStatechange)
-  statReportingEL.textContent = currentState;
+    const currentState = createCountString(cityStatechange, skyStatechange, castleStatechange);
+    statReportingEL.textContent = currentState;
 
 }
 
