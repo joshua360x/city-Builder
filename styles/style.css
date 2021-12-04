@@ -92,6 +92,14 @@ footer {
 }
 
 
+.nameSection {
+    height: 300px;
+}
+
+.nameSection p {
+    height: 50px;
+}
+
 
 
 .img-city {
