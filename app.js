@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { createCountString } from '../utils.js';
+import { createCountString } from './utils.js';
 
 
 const cityEL = document.querySelector('.img-city');
